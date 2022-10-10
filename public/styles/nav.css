@@ -1,0 +1,36 @@
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: #FFFFFF;
+  height: 120px;
+  background-image: url('../images/45-degree-fabric-dark.png');
+  background-color: #4056a1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav span {
+  
+  margin-top: 40px;
+  font-size: 150%;
+  display: flex;
+  font-family: 'Bungee', cursive;
+  padding: 0 1.5em;
+}
+
+.nav-angle {
+  margin-top: 40px;
+  padding: 0 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-angle p {
+  margin: 0%
+}
+
+.nav-angle i {
+  color: red;
+}

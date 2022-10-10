@@ -1,0 +1,36 @@
+.new-tweet {
+  margin-top: 1em;
+}
+
+.new-tweet textarea {
+  width: 100%;
+  background-color: #f4f1ec;
+  border: none;
+  border-bottom: 2px dashed black;
+  resize: none;
+  outline: none;
+}
+.new-tweet textarea::placeholder {
+  font-weight: bold;
+}
+
+.new-tweet button {
+  color: #f4f1ec;
+  background-color: #4056a1;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.9em;
+  padding: 0.1em 0.4em;
+}
+
+.new-tweet output {
+  font-family: 'Bungee', cursive;
+}
+
+.submit-counter {
+  margin-top: 0.5em;
+  font-family: 'Bungee', cursive;
+  display: flex;
+  justify-content: space-between;
+}
