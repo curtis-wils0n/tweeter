@@ -10,8 +10,8 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
+
 nav span {
-  
   margin-top: 40px;
   font-size: 150%;
   display: flex;
@@ -29,8 +29,4 @@ nav span {
 
 .nav-angle p {
   margin: 0%
-}
-
-.nav-angle i {
-  color: red;
 }

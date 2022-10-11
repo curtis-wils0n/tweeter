@@ -1,4 +1,4 @@
-header {
+.profile {
   height: 520px;
   width: 100%;
   display: flex;
@@ -8,12 +8,12 @@ header {
   background-image: url("../images/45-degree-fabric-dark.png");
   background-color: #D89820;
 }
-header h2 {
+.profile h2 {
   margin-top: 0;
   margin-bottom: 1em;
   color: azure;
   font-weight: 100;
 }
-header h2 b{
+.profile h2 b{
   font-weight: bold;
 }

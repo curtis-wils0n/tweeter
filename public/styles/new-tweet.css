@@ -2,20 +2,28 @@
   margin-top: 1em;
 }
 
-.new-tweet textarea {
-  width: 100%;
-  background-color: #f4f1ec;
-  border: none;
-  border-bottom: 2px dashed black;
-  resize: none;
-  outline: none;
-}
-.new-tweet textarea::placeholder {
+.new-tweet label {
   font-weight: bold;
 }
 
-.new-tweet button {
-  color: #f4f1ec;
+.new-tweet textarea {
+  width: 100%;
+  background-color: #F6F1ED;
+  border: none;
+  border-bottom: 4px dashed black;
+  resize: none;
+  outline: none;
+}
+
+.submit-counter {
+  margin-top: 0.5em;
+  font-family: 'Bungee', cursive;
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-counter button {
+  color: #F6F1ED;
   background-color: #4056a1;
   border: none;
   border-radius: 4px;
@@ -24,13 +32,10 @@
   padding: 0.1em 0.4em;
 }
 
-.new-tweet output {
-  font-family: 'Bungee', cursive;
+#counter {
+  color: #545149;
 }
 
-.submit-counter {
-  margin-top: 0.5em;
-  font-family: 'Bungee', cursive;
-  display: flex;
-  justify-content: space-between;
+#error-text {
+  color: red;
 }
