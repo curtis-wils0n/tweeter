@@ -60,6 +60,7 @@ $(document).ready(function() {
     if (dataToServer === 'text=') {
       alert('You cannot tweet just nothing!');
     } else if (dataToServer.length > 145) {
+      // TODO: Known bug, counter will stop functioning if this alert is hit.
       alert('You cannot tweet a message above 140 characters.');
     } else {
       //Send the info to the server via a POST request
@@ -69,6 +70,8 @@ $(document).ready(function() {
         data: dataToServer,
       })
       .then(() => {
+        $('#tweet-text').val('');
+        $('#counter').val(140);
         $.get('/tweets', (fetchedTweets) => {
           $('.tweet-container').prepend(createTweetElement(fetchedTweets.pop()));
         })

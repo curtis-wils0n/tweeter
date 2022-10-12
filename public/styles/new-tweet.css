@@ -32,6 +32,15 @@
   padding: 0.1em 0.4em;
 }
 
+.submit-counter button:hover {
+  background-color: #6d7fb9;
+}
+
+.submit-counter button:active {
+  background-color: #F6F1ED;
+  color: #4056a1;
+}
+
 #counter {
   color: #545149;
 }
