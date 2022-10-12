@@ -4,6 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 const createTweetElement = function(tweetData) {
   const avatar = tweetData.user.avatars;
   const name = tweetData.user.name;
@@ -13,13 +19,13 @@ const createTweetElement = function(tweetData) {
   const $tweet = `
   <article class="tweet">
     <header>
-      <img src="${avatar}" alt="Avatar for ${name}">
-      <p>${name}</p>
-      <p class="hashtag">${handle}</p>
+      <img src="${escape(avatar)}" alt="Avatar for ${escape(name)}">
+      <p>${escape(name)}</p>
+      <p class="hashtag">${escape(handle)}</p>
     </header>
-    <p>${content}</p>
+    <p>${escape(content)}</p>
     <footer>
-      <p>${date}</p>
+      <p>${escape(date)}</p>
       <span></span>
       <i class="fa-solid fa-flag"></i>
       <i class="fa-solid fa-heart"></i>
