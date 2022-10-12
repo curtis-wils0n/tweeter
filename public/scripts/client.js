@@ -33,7 +33,7 @@ const createTweetElement = function(tweetData) {
 const renderData = function(tweets) {
   for (const tweet of tweets) {
     const $renderedTweet = createTweetElement(tweet);
-    $('.tweet-container').append($renderedTweet);
+    $('.tweet-container').prepend($renderedTweet);
   }
 };
 
@@ -57,7 +57,6 @@ $(document).ready(function() {
     event.preventDefault();
     //get the data
     const dataToServer = $form.serialize();
-    console.log(dataToServer.length);
     if (dataToServer === 'text=') {
       alert('You cannot tweet just nothing!');
     } else if (dataToServer.length > 145) {
@@ -69,8 +68,10 @@ $(document).ready(function() {
         url: '/tweets',
         data: dataToServer,
       })
-      .then((response) => {
-        console.log('response', response);
+      .then(() => {
+        $.get('/tweets', (fetchedTweets) => {
+          $('.tweet-container').prepend(createTweetElement(fetchedTweets.pop()));
+        })
       })
       .catch((error) => {
         console.log('error', error);
