@@ -5,7 +5,7 @@ article.tweet {
   border: 4px solid black;
 }
 
-article.tweet.withShadow {
+article.tweet:hover {
   box-shadow: rgba(3, 102, 214, 0.3) 4px 4px 0px 0px;
 }
 
@@ -28,7 +28,7 @@ article.tweet i {
   margin: 0.5em;
 }
 
-article.tweet i.hovering {
+article.tweet i:hover {
   color: #D89820;
 }
 

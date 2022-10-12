@@ -9,7 +9,7 @@ const createTweetElement = function(tweetData) {
   const name = tweetData.user.name;
   const handle = tweetData.user.handle;
   const content = tweetData.content.text;
-  const date = tweetData.created_at;
+  const date = timeago.format(tweetData.created_at);
   const $tweet = `
   <article class="tweet">
     <header>
@@ -48,39 +48,33 @@ const loadTweets = function() {
   })
 };
 
+loadTweets();
+
 $(document).ready(function() {
-  //- Hover event-watcher -//
-  $('.tweet').mouseenter(function() {
-    $(this).addClass('withShadow');
-  })
-  $('.tweet').mouseleave(function() {
-    $(this).removeClass('withShadow');
-  })
-  $('i').mouseenter(function() {
-    $(this).addClass('hovering');
-  })
-  $('i').mouseleave(function() {
-    $(this).removeClass('hovering');
-  })
   //- Form submit event-watcher -//
   const $form = $('#submit-tweet');
   $form.submit((event) => {
     event.preventDefault();
     //get the data
     const dataToServer = $form.serialize();
-    console.log(dataToServer);
-    //Send the info to the server via a POST request
-    $.ajax({
-      method: 'POST',
-      url: '/tweets',
-      data: dataToServer,
-    })
-    .then((response) => {
-      console.log('response', response);
-    })
-    .catch((error) => {
-      console.log('error', error);
-    })
+    console.log(dataToServer.length);
+    if (dataToServer === 'text=') {
+      alert('You cannot tweet just nothing!');
+    } else if (dataToServer.length > 145) {
+      alert('You cannot tweet a message above 140 characters.');
+    } else {
+      //Send the info to the server via a POST request
+      $.ajax({
+        method: 'POST',
+        url: '/tweets',
+        data: dataToServer,
+      })
+      .then((response) => {
+        console.log('response', response);
+      })
+      .catch((error) => {
+        console.log('error', error);
+      })
+    }
   });
-  loadTweets();
 });
