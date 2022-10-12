@@ -64,12 +64,19 @@ $(document).ready(function() {
     //get the data
     const dataToServer = $form.serialize();
     if (dataToServer === 'text=') {
-      alert('You cannot tweet just nothing!');
+      $('.error-message-length').slideUp('slow');
+      if ($('.error-message-text').first().is(':hidden')) {
+        $('.error-message-text').slideDown('slow');
+      }
     } else if (dataToServer.length > 145) {
-      // TODO: Known bug, counter will stop functioning if this alert is hit.
-      alert('You cannot tweet a message above 140 characters.');
+      $('.error-message-text').slideUp('slow');
+      if ($('.error-message-length').first().is(':hidden')) {
+        $('.error-message-length').slideDown('slow');
+      }
     } else {
       //Send the info to the server via a POST request
+      $('.error-message-length').slideUp('slow');
+      $('.error-message-text').slideUp('slow');
       $.ajax({
         method: 'POST',
         url: '/tweets',

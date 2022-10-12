@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./styles/header.css" type="text/css">
     <link rel="stylesheet" href="./styles/new-tweet.css" type="text/css">
     <link rel="stylesheet" href="./styles/article.css" type="text/css">
-
+    <link rel="stylesheet" href="./styles/error.css" type="text/css">
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -47,6 +47,14 @@
     </header>
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <section class="error-message-text">
+        <h3>Howdy there!</h3>
+        <p>You cannot tweet an empty message (that wouldn't make our app very interesting)</p>
+      </section>
+      <section class="error-message-length">
+        <h3>Howdy there!</h3>
+        <p>You cannot tweet a message over 140 characters (keep it snappy)</p>
+      </section>
       <section class="new-tweet">
         <form id="submit-tweet">
           <label for="tweet-text">What are you humming about?</label>

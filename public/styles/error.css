@@ -1,0 +1,23 @@
+.error-message-text {
+  display: none;
+  color: red;
+  border: 4px red solid;
+  padding: 1em 2em;
+  margin: 1em 0;
+}
+
+.error-message-text p {
+  font-weight: bolder;
+}
+
+.error-message-length {
+  display: none;
+  color: red;
+  border: 4px red solid;
+  padding: 1em 2em;
+  margin: 1em 0;
+}
+
+.error-message-length p {
+  font-weight: bolder;
+}
