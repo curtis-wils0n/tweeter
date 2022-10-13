@@ -21,3 +21,7 @@
 .error-message-length p {
   font-weight: bolder;
 }
+
+#error-text {
+  color: red;
+}
