@@ -1,4 +1,5 @@
 .new-tweet {
+  display: none;
   margin-top: 1em;
 }
 
@@ -41,7 +42,7 @@
   color: #4056a1;
 }
 
-#counter {
+.submit-counter output {
   color: #545149;
 }
 
