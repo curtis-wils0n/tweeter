@@ -1,15 +1,21 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
+/**
+ * Prevents cross-site scripting by returning non-executable html in a "text 
+ *     node".
+ * 
+ * @param {string} str Value to be parsed
+ * @returns {string} Inner HTML of div with str value
  */
-
 const escape = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
-
+/**
+ * Receives a JSON object to return its values as an html block.
+ * 
+ * @param {json} tweetData 
+ * @returns {string} Parsed string formatted as an html block
+ */
 const createTweetElement = function(tweetData) {
   const avatar = tweetData.user.avatars;
   const name = tweetData.user.name;
@@ -35,14 +41,21 @@ const createTweetElement = function(tweetData) {
   `;
   return $tweet;
 };
-
+/**
+ * Works through a list of json objects and passes the value of each to 
+ *     createTweetElement().
+ * 
+ * @param {Array.<json>} tweets
+ */
 const renderData = function(tweets) {
   for (const tweet of tweets) {
     const $renderedTweet = createTweetElement(tweet);
     $('.tweet-container').prepend($renderedTweet);
   }
 };
-
+/**
+ * Fetches tweets from /tweets route and passes contents to renderData().
+ */
 const loadTweets = function() {
   $.ajax({
     url: '/tweets',
@@ -53,9 +66,9 @@ const loadTweets = function() {
     }
   });
 };
-
+// Load initial tweets
 loadTweets();
-
+// Executes once document has loaded
 $(document).ready(function() {
   //- Form submit event-watcher -//
   const $form = $('#submit-tweet');
@@ -73,23 +86,23 @@ $(document).ready(function() {
         $('.error-message-length').slideDown('slow');
       }
     } else {
+      // Hide error messages if shown
       $('.error-message-length').slideUp('slow');
       $('.error-message-text').slideUp('slow');
+      // Post to and retrieve contents of /tweets and display the newest
       $.ajax({
         method: 'POST',
         url: '/tweets',
         data: dataToServer,
       })
         .then(() => {
+          // Reset textarea and counter
           $('#tweet-text').val('');
           $('#counter').val(140);
           $.get('/tweets', (fetchedTweets) => {
             $('.tweet-container').prepend(createTweetElement(fetchedTweets.pop()));
           });
         })
-        .catch((error) => {
-          console.log('error', error);
-        });
     }
   });
 });

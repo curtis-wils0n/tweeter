@@ -56,7 +56,7 @@ main {
 #toTop:hover {
   background-color: #4056a1;
 }
-
+/* Desktop styling */
 @media screen and (min-width: 1024px) {
   #page-content {
     flex-direction: row;
@@ -69,5 +69,6 @@ main {
   }
   .container {
     flex-grow: 1;
+    max-width: 70vw;
   }
 }

@@ -19,7 +19,7 @@
 .profile h2 b{
   font-weight: bold;
 }
-
+/* Desktop styling */
 @media screen and (min-width: 1024px) {
   .profile {
     display: flex;

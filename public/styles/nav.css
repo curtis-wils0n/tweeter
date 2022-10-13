@@ -38,7 +38,7 @@ nav span {
 	40% {transform: translateY(-3px);}
 	60% {transform: translateY(-3px);}
 }
-
+/* Desktop styling */
 @media screen and (min-width: 1024px) {
   nav {
     background-image: url('../images/45-degree-fabric-dark.png');
