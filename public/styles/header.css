@@ -11,11 +11,20 @@
 
 .profile h2 {
   margin-top: 0;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   color: azure;
   font-weight: 100;
 }
 
 .profile h2 b{
   font-weight: bold;
+}
+
+@media screen and (min-width: 1024px) {
+  .profile {
+    display: flex;
+    align-items: center;
+    height: 20em;
+    width: 20em;
+  }
 }

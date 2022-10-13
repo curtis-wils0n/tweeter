@@ -29,47 +29,50 @@
     <script type="text/javascript" src="./scripts/composer-scroll-up.js"></script>
   </head>
   <body>
-    <!-- Top nav bar (fixed) -->
-    <nav id="nav-bar">
-      <span>tweeter</span>
-      <div class="nav-angle">
-        <p><b>Write</b> a new tweet</p>
-        <i class="fa-solid fa-angles-down"></i>
-      </div>
-    </nav>
-    <header class="profile">
-      <div>
-        <img src="./images/profile-hex.png" alt="A simple cartoon profile picture">
-      </div>
-      <br>
-      <div>
-        <h2><b>Test</b> Person</h2>
-      </div>
-    </header>
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="error-message-text">
-        <h3>Howdy there!</h3>
-        <p>You cannot tweet an empty message (that wouldn't make our app very interesting)</p>
-      </section>
-      <section class="error-message-length">
-        <h3>Howdy there!</h3>
-        <p>You cannot tweet a message over 140 characters (keep it snappy)</p>
-      </section>
-      <section class="new-tweet">
-        <form id="submit-tweet">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div class="submit-counter">
-            <button type="submit">Tweet</button>
-            <output name="counter" for="tweet-text" id="counter">140</output>
-          </div>
-        </form>
-      </section>
-      <section class="tweet-container"></section>
-      <button id="toTop">
-        <i class="fa-solid fa-angles-up"></i>
-      </button>
-    </main>
+    <div id="fullscreen-spacer"></div>
+    <div id="page-content">
+      <!-- Top nav bar (fixed) -->
+      <nav id="nav-bar">
+        <span>tweeter</span>
+        <div class="nav-angle">
+          <p><b>Write</b> a new tweet</p>
+          <i class="fa-solid fa-angles-down"></i>
+        </div>
+      </nav>
+      <header class="profile">
+        <div>
+          <img src="./images/profile-hex.png" alt="A simple cartoon profile picture">
+        </div>
+        <br>
+        <div>
+          <h2><b>Test</b> Person</h2>
+        </div>
+      </header>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="error-message-text">
+          <h3>Howdy there!</h3>
+          <p>You cannot tweet an empty message (that wouldn't make our app very interesting)</p>
+        </section>
+        <section class="error-message-length">
+          <h3>Howdy there!</h3>
+          <p>You cannot tweet a message over 140 characters (keep it snappy)</p>
+        </section>
+        <section class="new-tweet">
+          <form id="submit-tweet">
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea name="text" id="tweet-text"></textarea>
+            <div class="submit-counter">
+              <button type="submit">Tweet</button>
+              <output name="counter" for="tweet-text" id="counter">140</output>
+            </div>
+          </form>
+        </section>
+        <section class="tweet-container"></section>
+        <button id="toTop">
+          <i class="fa-solid fa-angles-up"></i>
+        </button>
+      </main>
+    </div>
   </body>
 </html>
