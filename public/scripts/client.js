@@ -57,6 +57,13 @@ const loadTweets = function() {
 loadTweets();
 
 $(document).ready(function() {
+  $('.nav-angle').click(function() {
+    if ($('.new-tweet').first().is(':hidden')) {
+      $('.new-tweet').slideDown('slow');
+    } else {
+      $('.new-tweet').slideUp('slow');
+    }
+  });
   //- Form submit event-watcher -//
   const $form = $('#submit-tweet');
   $form.submit((event) => {

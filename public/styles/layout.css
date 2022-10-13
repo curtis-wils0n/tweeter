@@ -29,3 +29,25 @@ main {
   padding-right: 5%;;
   background-color: #F3F1EC;
 }
+
+#toTop {
+  display: none;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  align-items: center;
+  background-color: #D89820;
+  border-radius: 50%;
+  border-width: 0;
+  color: #F3F1EC;
+  cursor: pointer;
+  height: 3em;
+  justify-content: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 26px;
+}
+
+#toTop:hover {
+  background-color: #4056a1;
+}

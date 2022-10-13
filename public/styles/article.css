@@ -12,6 +12,7 @@ article.tweet:hover {
 article.tweet p {
   margin: 10px 20px;
   font-weight: bold;
+  word-wrap: break-word;
 }
 
 article.tweet p.hashtag {
