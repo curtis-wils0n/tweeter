@@ -4,11 +4,11 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const escape = function (str) {
+const escape = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
 const createTweetElement = function(tweetData) {
   const avatar = tweetData.user.avatars;
@@ -32,7 +32,7 @@ const createTweetElement = function(tweetData) {
       <i class="fa-solid fa-retweet"></i>
     </footer>
   </article>
-  `
+  `;
   return $tweet;
 };
 
@@ -51,24 +51,16 @@ const loadTweets = function() {
     success: (fetchedTweets) => {
       renderData(fetchedTweets);
     }
-  })
+  });
 };
 
 loadTweets();
 
 $(document).ready(function() {
-  $('.nav-angle').click(function() {
-    if ($('.new-tweet').first().is(':hidden')) {
-      $('.new-tweet').slideDown('slow');
-    } else {
-      $('.new-tweet').slideUp('slow');
-    }
-  });
   //- Form submit event-watcher -//
   const $form = $('#submit-tweet');
   $form.submit((event) => {
     event.preventDefault();
-    //get the data
     const dataToServer = $form.serialize();
     if (dataToServer === 'text=') {
       $('.error-message-length').slideUp('slow');
@@ -81,7 +73,6 @@ $(document).ready(function() {
         $('.error-message-length').slideDown('slow');
       }
     } else {
-      //Send the info to the server via a POST request
       $('.error-message-length').slideUp('slow');
       $('.error-message-text').slideUp('slow');
       $.ajax({
@@ -89,16 +80,16 @@ $(document).ready(function() {
         url: '/tweets',
         data: dataToServer,
       })
-      .then(() => {
-        $('#tweet-text').val('');
-        $('#counter').val(140);
-        $.get('/tweets', (fetchedTweets) => {
-          $('.tweet-container').prepend(createTweetElement(fetchedTweets.pop()));
+        .then(() => {
+          $('#tweet-text').val('');
+          $('#counter').val(140);
+          $.get('/tweets', (fetchedTweets) => {
+            $('.tweet-container').prepend(createTweetElement(fetchedTweets.pop()));
+          });
         })
-      })
-      .catch((error) => {
-        console.log('error', error);
-      })
+        .catch((error) => {
+          console.log('error', error);
+        });
     }
   });
 });
