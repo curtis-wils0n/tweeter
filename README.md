@@ -12,7 +12,8 @@ This project uses a combination of HTML/CSS/JS, jQuery and AJAX front-end, and N
 
 ## Screenshots
 
-
+!["Gif of tablet version of Tweeter"](https://github.com/curtis-wils0n/tweeter/blob/master/docs/tweeter-tablet.gif?raw=true)
+!["Gif of desktop version of Tweeter"](https://github.com/curtis-wils0n/tweeter/blob/master/docs/tweeter-desktop.gif?raw=true)
 
 ## Dependencies
 
