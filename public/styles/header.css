@@ -26,5 +26,7 @@
     align-items: center;
     height: 20em;
     width: 20em;
+    margin-left: 2em;
+    margin-top: 1em;
   }
 }
