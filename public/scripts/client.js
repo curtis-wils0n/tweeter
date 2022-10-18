@@ -66,6 +66,17 @@ const loadTweets = function() {
     }
   });
 };
+/**
+ * Tests whether the #tweet-text value is within provided range.
+ * 
+ * @param {int} min 
+ * @param {int} max 
+ * @returns {boolean}
+ */
+const checkLengthWithinRange = function(min, max) {
+  const data = $('#tweet-text').val().length;
+  return data > min && data <= max;
+}
 // Load initial tweets
 loadTweets();
 // Executes once document has loaded
@@ -74,22 +85,12 @@ $(document).ready(function() {
   const $form = $('#submit-tweet');
   $form.submit((event) => {
     event.preventDefault();
-    const dataToServer = $form.serialize();
-    if (dataToServer === 'text=') {
-      $('.error-message-length').slideUp('slow');
-      if ($('.error-message-text').first().is(':hidden')) {
-        $('.error-message-text').slideDown('slow');
-      }
-    } else if (dataToServer.length > 145) {
-      $('.error-message-text').slideUp('slow');
-      if ($('.error-message-length').first().is(':hidden')) {
-        $('.error-message-length').slideDown('slow');
-      }
-    } else {
+    if (checkLengthWithinRange(0, 140)) {
       // Hide error messages if shown
       $('.error-message-length').slideUp('slow');
       $('.error-message-text').slideUp('slow');
       // Post to and retrieve contents of /tweets and display the newest
+      const dataToServer = $form.serialize(); // Data is not serialized until right before post
       $.ajax({
         method: 'POST',
         url: '/tweets',
@@ -103,6 +104,16 @@ $(document).ready(function() {
             $('.tweet-container').prepend(createTweetElement(fetchedTweets.pop()));
           });
         })
+    } else if ($('#tweet-text').val().length === 0) {
+      $('.error-message-length').slideUp('slow');
+      if ($('.error-message-text').first().is(':hidden')) {
+        $('.error-message-text').slideDown('slow');
+      }
+    } else {
+      $('.error-message-text').slideUp('slow');
+      if ($('.error-message-length').first().is(':hidden')) {
+        $('.error-message-length').slideDown('slow');
+      }
     }
   });
 });
